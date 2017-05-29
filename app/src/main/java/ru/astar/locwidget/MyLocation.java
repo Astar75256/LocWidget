@@ -22,7 +22,6 @@ public class MyLocation implements LocationListener {
 
     private Context context;
     private Location gpsLocation;
-    private Location netLocation;
 
     public MyLocation(Context context) {
         this.context = context;
@@ -34,7 +33,6 @@ public class MyLocation implements LocationListener {
 
         manager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 60000, 10, this);
         gpsLocation = manager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        netLocation = manager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
     }
 
 
@@ -42,16 +40,12 @@ public class MyLocation implements LocationListener {
     public double getLatitude() {
         if (gpsLocation != null)
             return gpsLocation.getLatitude();
-        else if (netLocation != null)
-            return netLocation.getLatitude();
         return -1;
     }
 
     public double getLongitude() {
         if (gpsLocation != null)
             return gpsLocation.getLongitude();
-        else if (netLocation != null)
-            return netLocation.getLongitude();
         return -1;
     }
 
@@ -86,7 +80,7 @@ public class MyLocation implements LocationListener {
     public String toString() {
         return "Широта: " + getLatitude() + "\n"
                 + "Долгота: " + getLongitude() + "\n"
-                + "Адрес: " + getAddress(netLocation);
+                + "Адрес: " + getAddress(gpsLocation);
     }
 
     @Override
