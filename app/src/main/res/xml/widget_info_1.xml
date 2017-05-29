@@ -4,7 +4,7 @@
     android:minResizeWidth="110dp"
     android:minResizeHeight="80dp"
     android:updatePeriodMillis="8600000"
-    android:previewImage="@drawable/common_google_signin_btn_icon_dark_normal_background"
+    android:previewImage="@drawable/loc_widget"
     android:initialLayout="@layout/appwidget"    
     android:resizeMode="horizontal|vertical"
     android:configure="ru.astar.locwidget.WidgetConfig">
